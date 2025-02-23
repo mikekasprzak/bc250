@@ -14,12 +14,11 @@ At the time of this writing, installing Linux is a little wonky, and MESA driver
 
 Ubuntu setup notes: <https://github.com/chris2355/BC250-Proxmox->
 
-## Questions
+### Questions
 
 * Does this use an 8pin CPU cable or 8pin GPU cable?
 
 ## Warnings
 
-* the 8-pin GPU power connector on common power supplies is only spec'd for 150W!!
-  * Technically the pinout of the 8pin and 6pin are the same, but the extra 2 pins are grounded or used as sense pins
-  * 
+* the 8-pin GPU power connector on common power supplies is **only spec'd for 150W**!!
+* I'm not sure about the 8 pin CPU connector (or dual 4 pin), but [this](https://www.moddiy.com/pages/Power-Supply-Connectors-and-Pinouts.html) says it's over 300W.
