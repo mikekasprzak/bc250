@@ -16,7 +16,9 @@ Ubuntu setup notes: <https://github.com/chris2355/BC250-Proxmox->
 
 ### Questions
 
-* Does this use an 8pin CPU cable or 8pin GPU cable?
+* Q: Does this use an 8pin CPU cable or 8pin GPU cable?
+  * A: 8 pin GPU cable.
+    * I probed the power connector, and found continuity with 5 of the 8 pins (i.e. ground), then 3 of other pins (12V).
 
 ## Warnings
 
