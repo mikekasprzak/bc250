@@ -27,3 +27,7 @@ Ubuntu setup notes: <https://github.com/chris2355/BC250-Proxmox->
 
 * the 8-pin GPU power connector on common power supplies is **only spec'd for 150W**!!
 * I'm not sure about the 8 pin CPU connector (or dual 4 pin), but [this](https://www.moddiy.com/pages/Power-Supply-Connectors-and-Pinouts.html) says it's over 300W.
+
+## Other Links
+
+* Hardware breakdown by Chips and Cheese: <https://chipsandcheese.com/p/the-nerfed-fpu-in-ps5s-zen-2-cores>
