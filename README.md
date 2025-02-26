@@ -42,14 +42,16 @@ J2000 and J2001 (next to J1000, a GPU power connector)
 [ ? ? ? ? ]   [ ? ? ? ? ]
 [ x G G G ]   [ G G G G ]
 
-J4000 and Speaker/J5 (near front, bottom)
-[ G ? ? ? ]   ( ? x x x )
-[ ? ? ?   ]   ( ? G x x )
+J4000 and Speaker/J5 (near front+bottom, a populated and unpopulated connector)
+[ G ? ? ? ]     ? x x x
+[ ? ? ?   ]     ? G x x 
 
 J2 (backside, unpopulated, near front)
 ? ? ? ? ? ? x ? x x
 ? G G G ? ? ? ? G ?
 ```
+
+* NOTE: I would hae expected `G ? ? V` for a speaker
 
 ## PCIe Benchmarking
 
