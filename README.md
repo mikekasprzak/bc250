@@ -60,7 +60,7 @@ TPMS1
 
 J4000 and Speaker/J5 (near front+bottom, a populated and unpopulated connector)
 ( G ? ? ? )     ? x x x
-( A ? ?   )     ? G x x 
+( A ? ?   )     A G x x 
   ^             ^
 
 J2 (backside, unpopulated, near front)
