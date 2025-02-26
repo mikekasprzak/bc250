@@ -34,28 +34,39 @@ Ubuntu setup notes: <https://github.com/chris2355/BC250-Proxmox->
 G = GND
 x = NC (floating)
 V = 12V
-A = Unknown (5V? 3.3V?)
+? = Unknown pin
+A, B, C = Unknown common pin (might be 5V, 3.3V, etc)
+
+^ or v = Pin #1
+[] = Socket (female)
+() = Pin headers (male)
+
 
 J4003 (near power connectors)
 ( G ? ? ? ? ? ?   )
 ( G ? ? ? ? ? G ? )
+  ^
 
 J1000 (8-pin GPU power), J2000, and J2001
-    ___    
+    ___         v             v
 [ G G G G ]   [ ? V V V ]   [ V V V ? ]
 [ G V V V ]   [ x G G G ]   [ G G G ? ]
-
+        ^     
+        
 TPMS1 
-[ G ? ? ? ? G ? ? ? ]
-[ ? ? ? ? ? ?   A G ]
+( G ? ? ? ? G ? ? ? )
+( ? ? ? ? ? ?   A G )
+  ^
 
 J4000 and Speaker/J5 (near front+bottom, a populated and unpopulated connector)
 ( G ? ? ? )     ? x x x
 ( A ? ?   )     ? G x x 
+  ^             ^
 
 J2 (backside, unpopulated, near front)
 ? ? ? ? ? ? x ? x x
 ? G G G ? ? ? ? G ?
+^
 ```
 
 * NOTE: I would hae expected `G ? ? V` for a speaker
