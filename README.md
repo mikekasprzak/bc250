@@ -28,6 +28,29 @@ Ubuntu setup notes: <https://github.com/chris2355/BC250-Proxmox->
 * the 8-pin GPU power connector on common power supplies is **only spec'd for 150W**!!
 * I'm not sure about the 8 pin CPU connector (or dual 4 pin), but [this](https://www.moddiy.com/pages/Power-Supply-Connectors-and-Pinouts.html) says it's over 300W.
 
+## Pinouts of nonstandard connectors
+
+```bash
+G = GND
+x = NC?
+
+J4003 (near power connectors)
+[ G ? ? ? ? ? ?   ]
+[ G ? ? ? ? ? G ? ]
+
+J2000 and J2001 (next to J1000, a GPU power connector)
+[ ? ? ? ? ]   [ ? ? ? ? ]
+[ x G G G ]   [ G G G G ]
+
+J4000 and Speaker/J5 (near front, bottom)
+[ G ? ? ? ]   ( ? x x x )
+[ ? ? ?   ]   ( ? G x x )
+
+J2 (backside, unpopulated, near front)
+? ? ? ? ? ? x ? x x
+? G G G ? ? ? ? G ?
+```
+
 ## PCIe Benchmarking
 
 <https://cloud.google.com/compute/docs/disks/benchmarking-pd-performance-linux>
