@@ -32,19 +32,26 @@ Ubuntu setup notes: <https://github.com/chris2355/BC250-Proxmox->
 
 ```bash
 G = GND
-x = NC?
+x = NC (floating)
+V = 12V
+A = Unknown (5V? 3.3V?)
 
 J4003 (near power connectors)
-[ G ? ? ? ? ? ?   ]
-[ G ? ? ? ? ? G ? ]
+( G ? ? ? ? ? ?   )
+( G ? ? ? ? ? G ? )
 
-J2000 and J2001 (next to J1000, a GPU power connector)
-[ ? ? ? ? ]   [ ? ? ? ? ]
-[ x G G G ]   [ G G G G ]
+J1000 (8-pin GPU power), J2000, and J2001
+    ___    
+[ G G G G ]   [ ? V V V ]   [ V V V ? ]
+[ G V V V ]   [ x G G G ]   [ G G G ? ]
+
+TPMS1 
+[ G ? ? ? ? G ? ? ? ]
+[ ? ? ? ? ? ?   A G ]
 
 J4000 and Speaker/J5 (near front+bottom, a populated and unpopulated connector)
-[ G ? ? ? ]     ? x x x
-[ ? ? ?   ]     ? G x x 
+( G ? ? ? )     ? x x x
+( A ? ?   )     ? G x x 
 
 J2 (backside, unpopulated, near front)
 ? ? ? ? ? ? x ? x x
