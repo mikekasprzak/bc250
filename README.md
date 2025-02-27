@@ -131,6 +131,25 @@ Ubuntu setup notes: <https://github.com/chris2355/BC250-Proxmox->
 
 ## Interesting Chips
 
+* Chipset: AMD Fusion Control Hub (instead of a Northbridge/Southbridge)
+  * AMD FCH A68H (218-0844029), AKA Bolton-D2H: <https://en.wikipedia.org/wiki/List_of_AMD_chipsets#Fusion_controller_hubs_(FCH)>
+  * Part of AMD's "A Series" chipsets for APU's and Socket FM2+ Athlon CPUs
+    * _"AMD's FCH has been discontinued since the release of the Carrizo series of CPUs as it has been integrated into the same die as the rest of the CPU.[9] However, since the release of the Zen architecture, there's still a component called a chipset which only handles relatively low speed I/O such as USB and SATA ports and connects to the CPU with a PCIe connection. In these systems all PCIe connections are routed directly to the CPU. The UMI interface previously used by AMD for communicating with the FCH is replaced with a PCIe connection. Technically the processor can operate without a chipset; it only continues to be present for interfacing with low speed I/O."_
+  * UMI: PCIe Gen 2 x4
+  * SATA: 4× 6 Gbit/s AHCI 1.3
+  * USB: 3.0 x2, 2.0 x8, 1.1 x2
+  * RAID: 0, 1, 10
+  * NIC: none
+  * PCI 33MHz: 3x slots
+  * SD: Yes
+  * VGA DAC: Yes
+  * TDP: 7.6W
+  * xHCI 1.0 (i.e. USB 3.0)
+    * USB data rates of **1.5 Mbit/s** (Low-speed), **12 Mbit/s** (Full-speed), **480 Mbit/s** (High-speed) and **5 Gbit/s** (SuperSpeed).
+  * Socket FM2+ (for reference)
+  * DDR3 Memory (for reference)
+ 
+
 * **M2U2**: NXP L04083B - a PCIe 3.0 Multiplexer
   * "The CBTL04083A/B can switch **four** differential signals to **one of two** locations"
   * "Useful for PCIe Gen 3, DisplayPort 1.2, USB 3.0, SATA 6 Gbit"
