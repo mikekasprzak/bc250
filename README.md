@@ -129,6 +129,11 @@ Ubuntu setup notes: <https://github.com/chris2355/BC250-Proxmox->
 * PCIe 2.0 x1 BUS (5 GT/s)
 * Operating at 2.5GT/s
 
+## Interesting Chips
+
+* **M2U2**: NXP L04083B - a PCIe 3.0 Multiplexer
+  * "Useful for PCIe Gen 3, DisplayPort 1.2, USB 3.0, SATA 6 Gbit"
+  * <https://www.nxp.com/docs/en/data-sheet/CBTL04083A_CBTL04083B.pdf>
 
 ## Pinouts of nonstandard connectors
 
