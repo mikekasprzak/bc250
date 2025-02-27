@@ -132,6 +132,7 @@ Ubuntu setup notes: <https://github.com/chris2355/BC250-Proxmox->
 ## Interesting Chips
 
 * **M2U2**: NXP L04083B - a PCIe 3.0 Multiplexer
+  * "The CBTL04083A/B can switch **four** differential signals to **one of two** locations"
   * "Useful for PCIe Gen 3, DisplayPort 1.2, USB 3.0, SATA 6 Gbit"
   * <https://www.nxp.com/docs/en/data-sheet/CBTL04083A_CBTL04083B.pdf>
 
