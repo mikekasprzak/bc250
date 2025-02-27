@@ -28,12 +28,35 @@ Ubuntu setup notes: <https://github.com/chris2355/BC250-Proxmox->
 * the 8-pin GPU power connector on common power supplies is **only spec'd for 150W**!!
 * I'm not sure about the 8 pin CPU connector (or dual 4 pin), but [this](https://www.moddiy.com/pages/Power-Supply-Connectors-and-Pinouts.html) says it's over 300W.
 
-## PCI Device Map
+## PCI Device Map (`lspci`)
+
+### 00:00 -- PCI ROOT
+
+* 00:00.0 Host bridge [0600]: Advanced Micro Devices, Inc. [AMD] Ariel Root Complex [1022:13e0]
+
+### 00:01 -- Dummy PCI Bridge
+
+* 00:01.0 Host bridge [0600]: Advanced Micro Devices, Inc. [AMD] Ariel PCIe Dummy Host Bridge [1022:13e2]
+
+### 00:08 -- APU PCI Bridge
+
+* 00:08.0 Host bridge [0600]: Advanced Micro Devices, Inc. [AMD] Ariel PCIe Dummy Host Bridge [1022:13e2]
+* 00:08.1 PCI bridge [0604]: Advanced Micro Devices, Inc. [AMD] Ariel Internal PCIe GPP Bridge 0 to Bus A [1022:13e5] (prog-if 00 [Normal decode])
+  * LnkCap:	Port #0, Speed 16GT/s, Width x16, ASPM L0s L1, Exit Latency L0s <64ns, L1 <1us
+  * LnkSta:	Speed 16GT/s, Width x16
+  * Kernel driver in use: pcieport
 
 ### 00:10 -- USB 3.0 BUS (ports on back)
 
 * 00:10.0 `lsusb`: Bus 006 Device 001: ID 1d6b:0002 Linux Foundation 2.0 root hub
 * 00:10.0 `lsusb`: Bus 007 Device 001: ID 1d6b:0003 Linux Foundation 3.0 root hub
+
+### 00:11 -- SATA BUS (no visible connectors)
+
+* 00:11.0 SATA controller [0106]: Advanced Micro Devices, Inc. [AMD] FCH SATA Controller [AHCI mode] [1022:7801] (rev 40) (prog-if 01 [AHCI 1.0])
+ 	* Kernel driver in use: ahci
+ 	* Kernel modules: ahci
+
 
 ### 00:12 -- USB 2.0/1.1 BUS
 
@@ -52,8 +75,8 @@ Ubuntu setup notes: <https://github.com/chris2355/BC250-Proxmox->
 ### 00:14 -- SMBus
 
 * 00:14.0 SMBus [0c05]: Advanced Micro Devices, Inc. [AMD] FCH SMBus Controller [1022:780b] (rev 16)
-*	Kernel driver in use: piix4_smbus
-*	Kernel modules: **i2c_piix4**, sp5100_tco
+  *	Kernel driver in use: piix4_smbus
+  *	Kernel modules: **i2c_piix4**, sp5100_tco
 
 #### 00.14.3 -- ISA Bridge
 
