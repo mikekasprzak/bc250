@@ -28,6 +28,85 @@ Ubuntu setup notes: <https://github.com/chris2355/BC250-Proxmox->
 * the 8-pin GPU power connector on common power supplies is **only spec'd for 150W**!!
 * I'm not sure about the 8 pin CPU connector (or dual 4 pin), but [this](https://www.moddiy.com/pages/Power-Supply-Connectors-and-Pinouts.html) says it's over 300W.
 
+## PCI Device Map
+
+### 00:10 -- USB 3.0 BUS (ports on back)
+
+* 00:10.0 `lsusb`: Bus 006 Device 001: ID 1d6b:0002 Linux Foundation 2.0 root hub
+* 00:10.0 `lsusb`: Bus 007 Device 001: ID 1d6b:0003 Linux Foundation 3.0 root hub
+
+### 00:12 -- USB 2.0/1.1 BUS
+
+* 00:12.0 `lsusb`: Bus 001 Device 001: ID 1d6b:0001 Linux Foundation 1.1 root hub
+  * Kernel driver in use: ohci-pci
+* 00:12.2 `lsusb`: Bus 002 Device 001: ID 1d6b:0002 Linux Foundation 2.0 root hub
+  * Kernel driver in use: ehci-pci
+
+### 00:13 -- USB 2.0/1.1 BUS (ports on back)
+
+* 00:13.0 `lsusb`: Bus 004 Device 001: ID 1d6b:0001 Linux Foundation 1.1 root hub
+  * Kernel driver in use: ohci-pci
+* 00:13.2 `lsusb`: Bus 003 Device 001: ID 1d6b:0002 Linux Foundation 2.0 root hub
+  * Kernel driver in use: ehci-pci
+
+### 00:14 -- SMBus
+
+* 00:14.0 SMBus [0c05]: Advanced Micro Devices, Inc. [AMD] FCH SMBus Controller [1022:780b] (rev 16)
+*	Kernel driver in use: piix4_smbus
+*	Kernel modules: **i2c_piix4**, sp5100_tco
+
+#### 00.14.3 -- ISA Bridge
+
+* 00:14.3 ISA bridge [0601]: Advanced Micro Devices, Inc. [AMD] FCH LPC Bridge [1022:780e] (rev 11)
+
+#### 00.14.4 -- PCI Bridge
+
+* 00:14.4 PCI bridge [0604]: Advanced Micro Devices, Inc. [AMD] FCH PCI Bridge [1022:780f] (rev 40) (prog-if 01 [Subtractive decode])
+
+#### 00:14.5 -- USB 1.1 BUS
+
+* 00:14.5 USB controller [0c03]: Advanced Micro Devices, Inc. [AMD] FCH USB OHCI Controller [1022:7809] (rev 11) (prog-if 10 [OHCI])
+  * `lsusb`: 005 Device 001: ID 1d6b:0001 Linux Foundation 1.1 root hub
+    * Kernel driver in use: ohci-pci
+
+
+### 00:15 -- PCI to PCI bridge (PCIE port 0)
+
+* 00:15.0 PCI bridge [0604]: Advanced Micro Devices, Inc. [AMD] Hudson PCI to PCI bridge (PCIE port 0) [1022:43a0] (prog-if 00 [Normal decode])
+  * LnkCap:	Port #0, Speed 5GT/s, Width x2, ASPM L0s L1, Exit Latency L0s <64ns, L1 <1us
+  * LnkSta:	Speed 5GT/s, Width x2
+  * Connected to 03:00.0 (NVMe Connector)
+* 00:15.1 PCI bridge [0604]: Advanced Micro Devices, Inc. [AMD] Hudson PCI to PCI bridge (PCIE port 1) [1022:43a1] (prog-if 00 [Normal decode])
+  * LnkCap:	Port #1, Speed 5GT/s, Width x1, ASPM L0s L1, Exit Latency L0s <64ns, L1 <1us
+  * LnkSta:	Speed 2.5GT/s, Width x1
+  * Connected to 04:00.0 (Ethernet)
+
+### 00:18 -- Memory
+
+* 00:18.0 - 00:18.7 -- 2GB GDDR6
+
+
+### 01:00 -- APU Devices
+
+* 01:00.0 -- VGA controller [0300]: Advanced Micro Devices, Inc. [AMD/ATI] Cyan Skillfish [BC-250] [1002:13fe]
+  * PCIe 4.0 x16 (16x 16GT/s)
+* 01:00.1 -- Audio device [0403]: Advanced Micro Devices, Inc. [AMD/ATI] Device [1002:13ff]
+  * PCIe 4.0 x16 (16x 16GT/s)
+* 01:00.2 -- Encryption controller [1080]: Advanced Micro Devices, Inc. [AMD] Device [1022:143e]
+  * PCIe 4.0 x16 (16x 16GT/s)
+
+
+### 03:00 -- NVMe Connector
+
+* PCIe 2.0 x2 BUS (2x 5GT/s)
+
+
+### 04:00 -- Ethernet controller [0200]: Realtek Semiconductor Co., Ltd. RTL8111/8168/8211/8411 PCI Express Gigabit Ethernet Controller [10ec:8168] (rev 15)
+
+* PCIe 2.0 x1 BUS (5 GT/s)
+* Operating at 2.5GT/s
+
+
 ## Pinouts of nonstandard connectors
 
 ```bash
@@ -43,12 +122,6 @@ A, B, C = Unknown common pin (might be 5V, 3.3V, etc)
 () = Pin headers (male)
 [==] = Chip
 
-
--- J4003 (back)
-( G ? ? ? ? ? ?   )
-( G ? ? ? ? ? G ? )
-  ^
-
 -- J1000 (8-pin GPU power), J2000, and J2001 --
     ___         v             v
 [ G G G G ]   [ ? V V V ]   [ V V V ? ]
@@ -60,7 +133,7 @@ A, B, C = Unknown common pin (might be 5V, 3.3V, etc)
 ( ? ? ? ? ? ?   A G )
   ^
 
--- J4000 and Speaker/J5 (unpopulate)
+-- J4000 and Speaker/J5 (unpopulated)
 ( G 3 4 ? )     ? x x x
 ( A 1 2   )     A G x x 
   ^             ^
@@ -70,6 +143,15 @@ A ? 3 4
 [=====]
 1 2 ? G 
 ^
+
+-- J4002 --
+DisplayPort Connector
+
+-- J4003 (rear, near power and fan) --
+( G ? ? ? ? ? ?   )
+( G ? ? ? ? ? G ? )
+  ^
+
 
 -- J2 (backside, unpopulated) --
 ? ? ? ? ? ? x ? x x
