@@ -134,7 +134,14 @@ Ubuntu setup notes: <https://github.com/chris2355/BC250-Proxmox->
 * **M2U2**: NXP L04083B - a PCIe 3.0 Multiplexer
   * "The CBTL04083A/B can switch **four** differential signals to **one of two** locations"
   * "Useful for PCIe Gen 3, DisplayPort 1.2, USB 3.0, SATA 6 Gbit"
-  * <https://www.nxp.com/docs/en/data-sheet/CBTL04083A_CBTL04083B.pdf>
+  * Four Channel: <https://www.nxp.com/docs/en/data-sheet/CBTL04083A_CBTL04083B.pdf>
+    * Previous Generation Four Channel (i.e. PCIe Gen 2): <https://www.nxp.com/docs/en/data-sheet/CBTL04082A_CBTL04082B.pdf>
+    * One Channel: <https://www.nxp.com/docs/en/data-sheet/CBTL01023.pdf>
+    * Two Channel: <https://www.nxp.com/docs/en/data-sheet/CBTL02043A_CBTL02043B.pdf>
+      * Previous generation Two Channel (i.e. PCIe Gen 2): <https://www.nxp.com/docs/en/data-sheet/CBTL02042A_CBTL02042B.pdf>
+  * General usage guide: <https://www.nxp.com/docs/en/application-note/AN11082.pdf>
+  * This Guide shows how it can be used to switch between SATA and PCIe on one connector: <https://www.nxp.com/docs/en/application-note/AN11001.pdf>
+    * 2x lanes go in, and they either exit to the PCIe bus or the SATA controller
 
 ## Pinouts of nonstandard connectors
 
