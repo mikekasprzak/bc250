@@ -46,7 +46,7 @@ Ubuntu setup notes: <https://github.com/chris2355/BC250-Proxmox->
   * LnkSta:	Speed 16GT/s, Width x16
   * Kernel driver in use: pcieport
 
-### 00:10 -- USB 3.0 BUS (ports on back)
+### 00:10 -- USB 3.0 BUS (blue USB ports on back)
 
 * 00:10.0 `lsusb`: Bus 006 Device 001: ID 1d6b:0002 Linux Foundation 2.0 root hub
 * 00:10.0 `lsusb`: Bus 007 Device 001: ID 1d6b:0003 Linux Foundation 3.0 root hub
@@ -65,7 +65,7 @@ Ubuntu setup notes: <https://github.com/chris2355/BC250-Proxmox->
 * 00:12.2 `lsusb`: Bus 002 Device 001: ID 1d6b:0002 Linux Foundation 2.0 root hub
   * Kernel driver in use: ehci-pci
 
-### 00:13 -- USB 2.0/1.1 BUS (ports on back)
+### 00:13 -- USB 2.0/1.1 BUS (black USB ports on back)
 
 * 00:13.0 `lsusb`: Bus 004 Device 001: ID 1d6b:0001 Linux Foundation 1.1 root hub
   * Kernel driver in use: ohci-pci
