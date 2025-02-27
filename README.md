@@ -36,34 +36,42 @@ x = NC (floating)
 V = 12V
 ? = Unknown pin
 A, B, C = Unknown common pin (might be 5V, 3.3V, etc)
+1-9 = Specific pins
 
 ^ or v = Pin #1
 [] = Socket (female)
 () = Pin headers (male)
+[==] = Chip
 
 
-J4003 (near power connectors)
+-- J4003 (back)
 ( G ? ? ? ? ? ?   )
 ( G ? ? ? ? ? G ? )
   ^
 
-J1000 (8-pin GPU power), J2000, and J2001
+-- J1000 (8-pin GPU power), J2000, and J2001 --
     ___         v             v
 [ G G G G ]   [ ? V V V ]   [ V V V ? ]
 [ G V V V ]   [ x G G G ]   [ G G G ? ]
         ^     
         
-TPMS1 
+-- TPMS1 --
 ( G ? ? ? ? G ? ? ? )
 ( ? ? ? ? ? ?   A G )
   ^
 
-J4000 and Speaker/J5 (near front+bottom, a populated and unpopulated connector)
-( G ? ? ? )     ? x x x
-( A ? ?   )     A G x x 
+-- J4000 and Speaker/J5 (unpopulate)
+( G 3 4 ? )     ? x x x
+( A 1 2   )     A G x x 
   ^             ^
 
-J2 (backside, unpopulated, near front)
+-- BIOS_A1 --
+A ? 3 4
+[=====]
+1 2 ? G 
+^
+
+-- J2 (backside, unpopulated) --
 ? ? ? ? ? ? x ? x x
 ? G G G ? ? ? ? G ?
 ^
