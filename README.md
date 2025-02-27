@@ -148,6 +148,7 @@ Ubuntu setup notes: <https://github.com/chris2355/BC250-Proxmox->
     * USB data rates of **1.5 Mbit/s** (Low-speed), **12 Mbit/s** (Full-speed), **480 Mbit/s** (High-speed) and **5 Gbit/s** (SuperSpeed).
   * Socket FM2+ (for reference)
   * DDR3 Memory (for reference)
+  * Unrelated Motherboard using a similar chipset: <https://resources.mini-box.com/online/MBD-J-NF83/MBD-J-NF83-manual.pdf>
  
 
 * **M2U2**: NXP L04083B - a PCIe 3.0 Multiplexer
